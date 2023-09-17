@@ -11,6 +11,7 @@ import com.amazonaws.services.simpleemail.model.Destination;
 import com.amazonaws.services.simpleemail.model.Message;
 import com.amazonaws.services.simpleemail.model.SendEmailRequest;
 import com.nb.emailservice.adapters.EmailSenderGateway;
+import com.nb.emailservice.core.exceptions.EmailServiceException;
 
 @Service
 public class SesEmailSender implements EmailSenderGateway {
@@ -35,7 +36,7 @@ public class SesEmailSender implements EmailSenderGateway {
         try {
             this.amazonSimpleEmailService.sendEmail(request);
         } catch (AmazonServiceException exception) {
-            throw new EmailServiceException("Failure while sending email")
+            throw new EmailServiceException("Failure while sending email", exception);
         }
         
     }
