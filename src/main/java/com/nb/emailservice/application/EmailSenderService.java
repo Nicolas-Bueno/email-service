@@ -5,14 +5,15 @@ import org.springframework.stereotype.Service;
 
 import com.nb.emailservice.adapters.EmailSenderGateway;
 import com.nb.emailservice.core.EmailSenderUseCase;
+
 @Service
 public class EmailSenderService implements EmailSenderUseCase{
     
     private final EmailSenderGateway emailSenderGateway;
 
     @Autowired
-    public EmailSenderService(EmailSenderGateway emailGateway){
-        this.emailSenderGateway = emailGateway;
+    public EmailSenderService(EmailSenderGateway emailSenderGateway){
+        this.emailSenderGateway = emailSenderGateway;
     }
     
     @Override
