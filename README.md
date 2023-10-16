@@ -21,6 +21,7 @@ Antes de usar o serviço, você precisará configurar suas credenciais para os p
     "region": "SUA_REGIAO_DA_AWS"
   }
 }
+```
 
 Substitua SUA_ACCESS_KEY_ID, SUA_SECRET_ACCESS_KEY e SUA_REGIAO_DA_AWS pelas suas próprias informações.
 
@@ -28,10 +29,10 @@ Uso
 Para enviar e-mails, você pode chamar a API do serviço de e-mail da seguinte maneira:
 
 # Exemplo de uso em Python
-
 from email_service import EmailService
 
 # Configurações
+```json
 config = {
     "ses": {
         "accessKeyId": "SUA_ACCESS_KEY_ID",
@@ -39,11 +40,13 @@ config = {
         "region": "SUA_REGIAO_DA_AWS"
     }
 }
+```
 
 # Crie uma instância do serviço de e-mail
 email_service = EmailService(config)
 
 # Envie um e-mail
+```json
 result = email_service.send_email(
     from_address="seu_email@dominio.com",
     to_address="destinatario@dominio.com",
@@ -55,7 +58,7 @@ if result:
     print("E-mail enviado com sucesso!")
 else:
     print("Falha no envio do e-mail. O failover para outro provedor será tentado automaticamente.")
-
+```
 Failover
 O serviço foi projetado para alternar automaticamente para outro provedor de e-mail em caso de falha na entrega do e-mail. Não é necessário fazer nada manualmente. O serviço fará a troca automaticamente e tentará enviar o e-mail novamente.
 
